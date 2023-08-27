@@ -1,0 +1,94 @@
+What is Config Driven UI ??
+
+Configuration-driven UI, also known as config-driven UI or configuration-based UI - When you build real a world application so you want should your website work in many country or many place we control our fontend it is known as using Config-Driven UI . API or Backend Driven which is data Comming from API.
+or
+In a configuration-driven UI, the layout, styles, and other properties of UI elements are defined in a configuration file or database, which can be easily modified without requiring changes to the codebase. This approach makes it easier to customize the UI for different use cases or user groups, without the need for extensive coding.
+The configuration file or database may also define the data sources and the data to be displayed in the UI, as well as the interactions and behavior of the UI components. This allows for greater flexibility and adaptability of the UI to different use cases, as the configuration data can be easily modified or replaced without affecting the underlying application logic
+
+----------------------------------------------
+
+Optional Chaining (JS)
+<h2>{ restraurantList[0].data?.name }</h2> (here ? this question mark find out about optional chainig )
+
+---------------------------------------------
+
+React Fibre
+It came in react 16 it is new reconcillation engine  and this reconcillation engine gives diff
+link to know mare -
+https://github.com/acdlite/react-fiber-architecture
+
+
+------------------
+You should never use index as key 
+but you don't have any unique key then use can use indexing as key
+( no key (not acceptable) <<<<< index key ( Ok if do not have unique key / use only if you have not anythinng to make key / LAST OPTION ) <<<< unique key  (best practice))
+Why not to use index as key ?
+
+
+-----------------------------------------
+Ch-5 Let's get Hooked 
+
+when in input tag value given is hardcoded then its value doest change 
+
+so react uses one-way Data Binding
+
+-> Whenver we wnat to create some local variable we use state in it 
+
+
+-----------------------------------------
+Why do we need useState Hook?
+A useState hook is used to maintain the state in our React application. It keeps track of the state changes so basically useState has the ability to encapsulate local state in a functional component. The useState hook is a special function that takes the initial state as an argument and returns an array of two entries. UseState encapsulate only singular value from the state, for multiple state need to have useState calls.
+
+Syntax for useState hook
+const [state, setState] = useState(initialstate);
+
+Importing: To use useState you need to import useState from react as shown below:
+import React, { useState } from "react";
+
+
+-------------
+What is Hook ?
+it is just a normal function written by facebook developers which gives use some functionality
+One of the most important hook is useState hook 
+
+
+what is useState() ?
+It is used to create local variable in application
+This function returns an array 
+
+---------------------------------
+
+Why react is fast ?
+It is because of its fast DOM maniulation (virtual dom)
+
+-------------------------
+
+React does not track local variable
+that's why we have to use useState coz it only keep track of state variable 
+
+State variable - we use useState to create state variable 
+example - const [restraurants, setRestaurants] = useState(restraurantList);
+
+
+---------------------------------------------------------------
+
+Exploring the world Chapter
+
+
+MICRO SERVICES (used in Industries)
+
+(TOPIC is in Exploring the world )
+
+useEffect() => it is hook use and it is just a function 
+
+it is callback function 
+run after  every render pages 
+
+empty dependency '[]' array => it call only once after render
+dependency array [searchText] => once after initial render + everytime after re-render (my searchText changes)
+
+useEffect(()=>{
+    API Call
+},[])
+
+SHIMMER UI - read about it

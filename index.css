@@ -1,0 +1,129 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* header  */
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border: 1px solid black;
+}
+.nav-items ul{
+    list-style-type: none;
+    display: flex;
+}
+.nav-items > ul > li{
+    padding: 5px;
+    margin: 8px;
+
+}
+.logo{
+    width: 100px;
+}
+/* search container */
+.search-container {
+  
+}
+.search-input{
+ 
+}
+.search-btn{
+  
+}
+.card {
+  width: 240px;
+  border-radius: 5px;
+  box-shadow: -1px 5px 10px 5px rgba(42, 42, 42, 0.2);
+  padding: 10px;
+  margin: 20px;
+  cursor: pointer;
+}
+.card:hover {
+  transform: scale(1.03);
+}
+.card > img{
+    width: 100%;
+    border-radius: 10px;
+}
+.card > h5 {
+  font-weight: lighter;
+}
+
+.card > h4 {
+  font-weight: bolder;
+  font-size: 12px;
+  padding: 0 2px 0;
+  margin-top: 10px;
+}
+
+.restraurant-list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+}
+
+/* Footer */
+.footer{
+  text-align: center;
+  margin: 10px;
+  padding: 15px;
+  color: #777;
+}
+
+/* shimmer css */
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+  }
+.shimmer-card {
+  flex-basis: 250px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-color: #d3d5df;
+  box-shadow: 0 4px 7px 0 rgb(218 220 230 / 60%);
+}
+.shimmer-title {
+  width: 60%;
+  margin-top: 10px;
+}
+.shimmer-tags {
+  width: 80%;
+  margin-top: 4px;
+}
+.shimmer-details {
+  width: 100%;
+  margin-top: 18px;
+}
+.shimmer-container .shimmer-img {
+  height: 144px;
+  width: 230px;
+}
+  
+/*Animation to Shimmer Component Cards */
+.stroke {
+  height: 15px;
+  background: #777;
+}
+.animate {
+  animation: shimmer 3s;
+  animation-iteration-count: infinite;
+  background: linear-gradient(to right, #e6e6e6 5%, #cccccc 25%, #e6e6e6 35%);
+  background-size: 1000px 100%;
+}
+@keyframes shimmer {
+  from {
+    background-position: -1000px 0;
+  }
+  to {
+    background-position: 1000px 0;
+  }
+}
+
+.menu{
+  display: flex;
+}

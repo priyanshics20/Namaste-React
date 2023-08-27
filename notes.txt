@@ -1,0 +1,19 @@
+ch - finding the path
+
+never write component inside a component (as it create component every time the function)
+
+never write useState() in if-else condition or inside a for loop
+
+never use useState or create useState outside the functional component (as it won't make sense )
+
+createBrowserRoute is a component from react-router-dom which helps to create routes
+
+TWO TYPES OF ROUTING -
+Client side routing - we don't wnat to load anything from Server
+Server side routing
+
+
+If you want to create nested routes 
+then you have to create Outlet it is component inside react-router-dom
+All children go into outlet 
+like body , about , contact 

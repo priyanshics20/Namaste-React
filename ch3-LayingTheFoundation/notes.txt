@@ -1,0 +1,36 @@
+"browserlist":[
+    "last 2 Chrome version"
+]
+it means it will definetly run on chrome (this didn't say thaat it will not run in other broswers it just does not give gurantee , it can run or can't run)
+
+browserlist helps in converting newer to older code with help of babel by making polyfills we can say  
+
+who converts newer code to older code ?
+it is babel which convert newer to older code
+
+example  older browser does not know ES6 so it can make their own code 
+ex - Array.map()
+some browsers doesn't know map function so it make polyfill of that i.e. we can make our own function workin same as function
+
+-----------------------------------
+
+babel-plugin-transform-remove-console 
+is used to remove console.log() 
+parcel does not remove it itself we have to use babel-plugin-transform-remove-console 
+we have to download it and then configure it 
+
+-----------------------------------
+
+React Components - 
+1- functional Component - (New way of writing) 
+ arrow function used in functional Component
+
+2- Class Based Component
+
+Name of component start should with capital letter (Not mandatory but good practice to use that )
+
+Composing Components = 
+component inside a component
+
+React reconcillation key 
+

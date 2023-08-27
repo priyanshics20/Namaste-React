@@ -1,0 +1,9 @@
+{
+    // "plugins": [ ["transform-remove-console", 
+    // { "exclude":  [ "error", "warn"] }] ]
+}
+
+
+// "babel-plugin-transform-remove-console": "^6.9.4", 
+// write this if want to remove console.log in react in package.json file and 
+// and in this file {} IN CURLY braces whatever is written remove // to enable 
