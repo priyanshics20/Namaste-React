@@ -29,7 +29,7 @@ const Header = () => {
                     <li>
                         <Link to='/contact'>Contact</Link>
                     </li>
-                    <li><i class="fa-sharp fa-solid fa-cart-shopping"></i></li>
+                    <li><i className="fa-sharp fa-solid fa-cart-shopping"></i></li>
                 
                 <li>
                         {

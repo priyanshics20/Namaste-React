@@ -17,3 +17,13 @@ If you want to create nested routes
 then you have to create Outlet it is component inside react-router-dom
 All children go into outlet 
 like body , about , contact 
+
+------------------------------------------------------------------------
+
+Ch- 8 -> Let's get Classy 
+
+Class Based Components - 
+
+There are two phase in page
+first phase - is "render phase" (here first constructor is called then it renders the component)
+second phase - is "Commit phase" (here first dom is updated or api is called )
