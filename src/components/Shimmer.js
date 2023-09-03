@@ -1,5 +1,5 @@
 
-const CardShimmer = () => {
+export const CardShimmer = () => {
     return (
       <div className="shimmer-card">
         <div className="shimmer-img stroke animate"></div>

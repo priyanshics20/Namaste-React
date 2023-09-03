@@ -27,3 +27,36 @@ Class Based Components -
 There are two phase in page
 first phase - is "render phase" (here first constructor is called then it renders the component)
 second phase - is "Commit phase" (here first dom is updated or api is called )
+
+***********************
+In UseEffect if we use setInterval then we have to clean it up as well 
+and in useEffect we clean up setInterval using return 
+UseEffect(()=>{
+    const time = setInterval(()=>{
+        console.log("namaste react");
+    },1000);
+    
+    return ()=>{
+        clearInterval(time);
+    }
+},[])
+
+this is how we clean up our code (in class based components we use componentWillUnmount)
+
+
+--------------------------------------------------------------------------
+
+ch9 -> Optimizing our app
+
+Functions we write or components it makes our code reusable , readable, maintable , testable 
+
+modularity means code is broken down into meaningfull pieces
+
+
+chunking , code splitting , dynamic bundling , lazy Loading , on demand loading , dynamic import
+these are same thing just different words 
+
+parcel uses only one js file so it is ok for normal projects 
+but if we use it for production then our website will not work properly 
+that's why we have to split our code into meaningful bundles and it is called as chunking etc 
+
