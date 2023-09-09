@@ -1,4 +1,4 @@
-import React, { lazy , Suspense} from "react";
+import React, { lazy , Suspense, useState} from "react";
 import ReactDOM from "react-dom/client";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
@@ -33,12 +33,17 @@ const AppLayout = () => {
   // coz after every render it reload again make website slower 
   // const Instamart = lazy(() => import("./components/Instamart"));
   
-    return (
-      <React.Fragment>
+  // const [user, setUser] = useState({
+  //   name: "Priyanshi Agrawal",
+  //   email: "apriyanshi637@gmail.com"
+  // })
+  
+  return (
+    <React.Fragment> 
           <Header />
           <Outlet />
           {/* <Body /> */}
-          <Footer />
+          <Footer />  
       </React.Fragment>
     );
 }

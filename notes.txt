@@ -60,3 +60,69 @@ parcel uses only one js file so it is ok for normal projects
 but if we use it for production then our website will not work properly 
 that's why we have to split our code into meaningful bundles and it is called as chunking etc 
 
+-------------------------------------------
+
+ch-10 (Jo Dikhta hai bo bikta hai)
+
+in this chapter akshay teach us how to use tailwind
+
+what types of css -
+inline css
+external css (normal css)
+style component
+material ui , chakara , base ui 
+taillwind
+bootstrap
+ 
+pros and cons of using different css type
+
+----------------------------------------------------
+
+ch-11  (Data is the new oil)
+
+In this chapter we studied about  props drilling ,lifting the state up
+
+props drilling is passing props from parents -> childOne -> Child'sChild
+here Child'sChild wants props of parents but chilOne has no use of its but still we have to pass props so that Child'sChild can use it
+So it is not good way that's why we use useContext hook
+
+In Context hook we can directly pass parent to Child'sChild 
+and we can use Context anywhere in the code 
+Context -
+creating context -> 
+import {createContext} from "./react"
+const UserContext = createContext({
+    loggedInUser: "Default User",
+});
+export default UserContext;
+
+At the end of the day createContext is a function 
+
+
+*****************
+
+In functional component we use it like this ->
+
+useContext -> import {useContext} from "./react";
+
+const {loggedInUser} = useContext(filename where we create context);
+<li className="px-4 ">{loggedInUser}</li>
+
+At the end of the day it is hook and hook is function 
+so useContext is also a funtion.
+
+******************
+
+In ClassBased Components -
+import UserContext from "../utils/UserContext";  //importing it 
+
+//using it by writing its name.Consumer
+<UserContext.Consumer>
+            {({ loggedInUser }) => (
+              <h1 className="text-xl font-bold">{loggedInUser}</h1>
+            )}
+</UserContext.Consumer>
+
+----------------------------------------------
+
+ch-12 Let's Build our Store 

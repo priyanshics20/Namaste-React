@@ -13,8 +13,7 @@ export const Title = () => {
     );
 }
 const Header = () => {
-
-    const [isLoggedIn , setLoggedIn] = useState(false);
+    const [isLoggedIn, setLoggedIn] = useState(false);
     return (
         <div className="header">
             <Title />
@@ -33,8 +32,8 @@ const Header = () => {
                         <Link to='/instamart'>Instamart</Link>
                     </li>
                     <li><i className="fa-sharp fa-solid fa-cart-shopping"></i></li>
-                
-                <li>
+                    
+                    <li>
                         {
                         /* { we can run only JS Expressions not statements } */
                         // these two are statements we can't run this 
