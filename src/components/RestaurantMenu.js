@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { IMG_CDN_URL, MENU_ITEM_TYPE_KEY } from '../config';
 import useRestaurant from '../utils/useRestaurant';
 import Shimmer from './Shimmer';
+import { addItem } from '../utils/cardSlice';
+import { useDispatch } from 'react-redux';
 const RestaurantMenu = () => {
     const {id} = useParams();
     console.log(id)
@@ -47,7 +49,12 @@ const RestaurantMenu = () => {
     // const restaurant = useRestaurant(id);
     
     const [restaurant, menuItems] = useRestaurant(id, MENU_ITEM_TYPE_KEY);
-    // get API from our own hook 
+    // get API from our own hook
+
+    const dispatch = useDispatch();
+    const addFoodItem = (item) => {
+        dispatch(addItem(item));
+    }
     
     return (!restaurant) ? <Shimmer/> :(
         <div className='menu'>
@@ -60,12 +67,18 @@ const RestaurantMenu = () => {
                 <h4>{restaurant?.data?.cards[0]?.card?.card?.info?.avgRating} stars</h4>
                 <h4>{restaurant?.data?.cards[0]?.card?.card?.info?.costForTwo} </h4>
             </div>
-
+            
             <div>
-                <h1>Menu</h1>
+                
+                <h3>Menu</h3>
                 <ul>
                     {menuItems.map((item) => (
-                        <li key={item.id}>{item.name}</li>
+                        <li key={item.id}>{item.name} - <button style={{
+                            backgroundColor: "lightgreen",
+                            padding: "4px",
+                            margin: "5px",
+                            border: "1px solid green",
+                        }}  onClick={() => addFoodItem(item)}>Add</button></li>
                     ))}
                 </ul>
             </div>

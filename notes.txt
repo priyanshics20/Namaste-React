@@ -123,6 +123,39 @@ import UserContext from "../utils/UserContext";  //importing it
             )}
 </UserContext.Consumer>
 
+We use Context to avoid prop drilling 
+
 ----------------------------------------------
 
 ch-12 Let's Build our Store 
+
+Why we use context api 
+
+cons of redux ->  it is complex to set , it has huge learning cuff, it is tough to learn
+it comes with lot of complexities 
+Only use redux when you have large scale application which involves a lof of data handling 
+It is not require to use redux in small applications 
+
+redux and react are different things 
+
+As redux is complex so it comes with redux toolkit
+we study redux toolkit 
+difference btw redux and redux toolkit 
+GO and see on google (redux toolkit)
+
+Redux at the end of the day is a big object 
+
+We can have multiple Context but we can have only one redux store 
+in context our component can directly modify the context but in redux store component can not directly modify our redux store  
+
+Why we can not directy modify the store ??
+
+
+in redux store we have different slices for components 
+
+To add redux we install it using command
+npm i @reduxjs/toolkit
+npm i react-redux
+
+why we add to packages is because first library (i.e. @reduxjs/toolkit) is core of redux
+and the other library is a bridge between react AND redux 

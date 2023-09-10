@@ -13,6 +13,10 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Profile from "./components/ProfileClass";
 import Shimmer from "./components/Shimmer";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import Cart from "./components/Cart";
+
 
 // import Instamart from "./components/Instamart";
 
@@ -40,10 +44,12 @@ const AppLayout = () => {
   
   return (
     <React.Fragment> 
+      <Provider store={store}>
           <Header />
           <Outlet />
           {/* <Body /> */}
           <Footer />  
+        </Provider>
       </React.Fragment>
     );
 }
@@ -84,6 +90,10 @@ const appRouter = createBrowserRouter([
             <Instamart /> 
           </Suspense>
         ), 
+      },
+      {
+        path: "/cart",
+        element: <Cart/>
       }
     ]
   },

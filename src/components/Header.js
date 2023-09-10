@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Logo from '../assets/img/food_villa_logo.png';
 import { Link } from 'react-router-dom';
-
+import {  useSelector } from 'react-redux/es/hooks/useSelector';
 export const Title = () => {
     return (
         <Link href="/">
@@ -14,6 +14,8 @@ export const Title = () => {
 }
 const Header = () => {
     const [isLoggedIn, setLoggedIn] = useState(false);
+    const cardItems = useSelector(store => store.cart.items);
+    console.log(cardItems); 
     return (
         <div className="header">
             <Title />
@@ -31,7 +33,9 @@ const Header = () => {
                     <li>
                         <Link to='/instamart'>Instamart</Link>
                     </li>
-                    <li><i className="fa-sharp fa-solid fa-cart-shopping"></i></li>
+                    <li>
+                        <Link to="/cart"><i className="fa-sharp fa-solid fa-cart-shopping"></i>{cardItems.length}</Link>
+                    </li>
                     
                     <li>
                         {
