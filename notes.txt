@@ -159,3 +159,90 @@ npm i react-redux
 
 why we add to packages is because first library (i.e. @reduxjs/toolkit) is core of redux
 and the other library is a bridge between react AND redux 
+
+
+----------------------------------------
+
+ch-13 Time for the test
+
+Different types of testing 
+    - Manual Testing (done by humans only)
+    - Automation Testing 
+        - Selenium Testing
+    
+    - E2E (end to end) Testing  - covers entires users journey and uses headless browser 
+    (headless browser is kind of like a actual browser having no ui)
+    with headless bbrowser we can execute test cases faster because it is headless as it does not have viewport or ui 
+
+    (most used by developers)
+    - Unit testing (this is the core job of developer) - it means you are testing small components
+    - Integration Testing 
+
+    ********************
+    React testing library is replacement of enzyme(it is used in past ) 
+    it is dependent on jest
+
+    we will be using jest for testing 
+    Jest is a delightful javascript testing framework with a focus on simplicity
+    if you need to test javascript code we use jest
+    It works with projects using Babel , Typescript , node , react , angular vue and more 
+
+    Installing react testing library 
+    1 - npm install --save-dev @testing-library/react 
+
+    then install jest 
+    2- npm i -D jest 
+
+    3 - configure jest  -> npx jest --init 
+        (npx why bcz we have to execute it only once)
+        then it will ask some qus
+        Q- would you like to use typescript .... ?  
+            no (ans)
+        Q -chose the test environmet -
+            jsdom (you have to choose )
+        Q- Do you want jest to add coverage reports ?
+            yes
+        Q- which provider should be used to instrument code for coverage
+            Babel (choose)
+        Q- Automatically clear mock calls ,.....every tests ?
+            yes 
+        
+        After all this it will create a file named jest.config.js
+
+    4- then run jest using command
+        npm run test
+        it will throw an error  
+        (As of Jest 28 "jest-environment-jsdom" is no longer shipped by default, make sure to install it separately.)
+    
+    5-so we will install one more package
+        npm i -D jest-environment-jsdom 
+    6 - create fist test file
+    7- configure babel (so that test file understand import)
+        npm install --save-dev babel-jest @babel/core @babel/preset-env
+
+        config babel 
+        Configure Babel to target your current version of Node by creating a babel.config.js file in the root of your project:
+
+        babel.config.js (file name ) or use can use .babelrc as well (.babelrc requires a json this you have to write in .babelrc
+        {
+            "presets": [['@babel/preset-env', {"targets": {"node": 'current'}}]],
+        })
+
+        {
+        presets: [['@babel/preset-env', {targets: {node: 'current'}}]],
+        };
+    8 - write test cases and git ignore /coverage file
+    9 - Jest does not understad jsx as well so babel will help to understand jsx
+        so we have to install
+            npm i -D @babel/preset-react
+
+        ['@babel/preset-react', {"runtime" : automatic}]
+        have to write this in .babelrc file  
+            ['@babel/preset-react', {"runtime" : automatic}]
+        like this below
+        {
+            "presets": [
+                ["@babel/preset-env", {"targets": {"node": "current"}}],
+                ["@babel/preset-react", { "runtime" : "automatic" }]
+            ],
+        }   
