@@ -73,7 +73,8 @@ const RestaurantMenu = () => {
                 <h3>Menu</h3>
                 <ul>
                     {menuItems.map((item) => (
-                        <li key={item.id}>{item.name} - <button style={{
+                        <li key={item.id} >
+                            {item.name} - <button style={{
                             backgroundColor: "lightgreen",
                             padding: "4px",
                             margin: "5px",
