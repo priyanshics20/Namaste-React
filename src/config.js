@@ -737,3 +737,8 @@ export const restraurantList =[
 export const MENU_ITEM_TYPE_KEY = "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
 
 export const swiggy_menu_api_URL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.83106070000001&&submitAction=ENTER&restaurantId="
+
+// Social Media Links
+export const Github_Link = "https://github.com/priyanshics20";
+export const Linkedin_Link = "https://www.linkedin.com/in/priyanshi-agrawal-a3402a237/";
+export const Email_Link = "mailto:apriyanshi637@gmail.com";

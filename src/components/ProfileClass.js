@@ -1,4 +1,5 @@
 import React from "react";
+import ProfileUserClass from "./ProfileUserClass";
 //  functional Components
 // const ProfileClass = () => {
 //     return (
@@ -19,10 +20,11 @@ class ProfileClass extends React.Component {
             // count2:0,
             userInfo: {
                 name: "",
-                location: "",
+                // location: "",
+                bio:"",
             }
         };
-        console.log("constructor");
+        // console.log("constructor");
     }
     // Class based components has life cycle
     // just like we use UseEffect to call api and call after rendering component 
@@ -35,45 +37,37 @@ class ProfileClass extends React.Component {
         this.setState({
             userInfo: json,
         })
-        console.log("componentDidMount");   
+        // console.log("componentDidMount");   
     }
 
     //after dom updated it will called 
     componentDidUpdate() {
-        console.log("componentDidUpdate");
+        // console.log("componentDidUpdate");
     }
 
     //it will be called just before unmount (if we go to another page then just before api is unmounted it is called )
     componentWillUnmount() {
-        console.log("componentWillUnmount");
+        // console.log("componentWillUnmount");
     }
 
     render() {
-        console.log("render");
+        // console.log("render");
         // destructuring state 
-        const { count } = this.state;
-        const { count2 } = this.state;
+        // const { count } = this.state;
+        // const { count2 } = this.state;
         const {userInfo} = this.state;
         return (
-            <div className="profile">
-                Profile Class Component
-                <h2>Name: {userInfo.name}</h2>
-                <img src={userInfo.avatar_url}/>
-                <h2>Location: {userInfo.location}</h2>
-                {/* <h2>Count: { this.state.count }</h2> */}
-                {/* after destructing */}
-                {/* <h2>Count: {count}</h2> */}
-                {/* We Should never mutate state directly  */}
-                {/* never do like this.state = something  (here i.e, inside render) */}
-                {/* <button onClick={() => {
-                    this.setState({
-                        count: count + 1,
-                        count2: count2 + 1
-                    })
-                }}>
-                    SetCount
-                </button> */}
-            </div>  
+            <>
+                {userInfo.name === "" ? null : (
+                    <div className="profile-class-container">
+                        <div className="profile-container">
+                            <h1 className="profile-title">About Me</h1>
+                            <ProfileUserClass data={userInfo} />
+                        </div>
+                    </div>
+                    
+                )}
+            </>
         )
     }
 }

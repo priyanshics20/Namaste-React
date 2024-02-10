@@ -30,9 +30,9 @@ const Header = () => {
                     <li>
                         <Link to='/contact'>Contact</Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to='/instamart'>Instamart</Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link to="/cart"><i className="fa-sharp fa-solid fa-cart-shopping"></i>{cardItems.length}</Link>
                     </li>
@@ -46,7 +46,10 @@ const Header = () => {
                         // we can do like this as expression 
                         // (a=10 , console.log(a))
                             
-                        isLoggedIn ? (<button onClick={() => setLoggedIn(false)}>LogOut</button>) : (<button onClick={() => setLoggedIn(true)}>Login</button>)
+                            isLoggedIn ?
+                                (<button className='logout-btn' onClick={() => setLoggedIn(false)}>LogOut</button>)
+                                :
+                                (<button className='login-btn' onClick={() => setLoggedIn(true)}>Login</button>)
                     }
                     </li>
                 </ul>

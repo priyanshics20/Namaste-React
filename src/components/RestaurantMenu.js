@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
-import  ReactDOM from 'react-dom/client';
 import { useParams } from 'react-router-dom';
 import { IMG_CDN_URL, MENU_ITEM_TYPE_KEY } from '../config';
 import useRestaurant from '../utils/useRestaurant';
-import Shimmer from './Shimmer';
+import {MenuShimmer} from './Shimmer';
 import { addItem } from '../utils/cardSlice';
 import { useDispatch } from 'react-redux';
 const RestaurantMenu = () => {
     const {id} = useParams();
-    console.log(id)
+    // console.log(id)
 
     // This restaurantMenu work is to only display menu but we are fetching menu api as well so insted of fetching data here we create our own hook
     // because this RestaurantMenu work is to only dispaly menu not to fetch data
@@ -56,32 +55,82 @@ const RestaurantMenu = () => {
         dispatch(addItem(item));
     }
     
-    return (!restaurant) ? <Shimmer/> :(
-        <div className='menu'>
-            <div>
-                <h2>RestarauntId: { restaurant?.data?.cards[0]?.card?.card?.info?.id }</h2>
-                <h2>{restaurant?.data?.cards[0]?.card?.card?.info?.name}</h2>
-                <img src={IMG_CDN_URL + restaurant?.data?.cards[0]?.card?.card?.info?.cloudinaryImageId} />
-                <h5>{restaurant?.data?.cards[0]?.card?.card?.info?.areaName}</h5>
-                <h5>{restaurant?.data?.cards[0]?.card?.card?.info?.city} </h5>
-                <h4>{restaurant?.data?.cards[0]?.card?.card?.info?.avgRating} stars</h4>
-                <h4>{restaurant?.data?.cards[0]?.card?.card?.info?.costForTwo} </h4>
+    return (!restaurant) ? <MenuShimmer/> :(
+        <div className='restaurant-menu'>
+            <div className='restaurant-summary'>
+                <img
+                    className='restaurant-img'
+                    src={IMG_CDN_URL + restaurant?.data?.cards[0]?.card?.card?.info?.cloudinaryImageId}
+                    alt={restaurant?.data?.cards[0].card?.card?.info?.name}
+                />
+                <div className='restaurant-summary-details'>
+                    <h2 className='restaurant-title'>
+                        {restaurant?.data?.cards[0]?.card?.card?.info?.name}
+                    </h2> 
+                    <p className='restaurant-tags'>
+                        {restaurant?.data?.cards[0]?.card?.card?.info?.cuisines.join(', ')}
+                    </p>
+                    <div className='restaurant-details'>
+                        <div
+                            className='restaurant-rating'
+                            style={
+                                restaurant?.data?.cards[0]?.card?.card?.info?.avgRating < 4
+                                    ? { backgroundColor: 'var(--light-red)' }
+                                    : restaurant?.data?.cards[0]?.card?.card?.info?.avgRating === '--'
+                                    ? { backgroundColor: "white", color: "black" }
+                                    : { color:'white'}
+                            }
+                        >
+                            <i className='fa-solid fa-star'></i>
+                            <span>{ restaurant?.data?.cards[0]?.card?.card?.info?.avgRating}</span>
+                        </div>
+                        <div className='restaurant-rating-slash'>|</div>
+                        <div>{ restaurant?.data?.cards[0]?.card?.card?.info?.costForTwoMessage}</div>
+                    </div>
+                </div>
             </div>
-            
-            <div>
+        
+            <div className='restaurant-menu-content'>
+                <div className='menu-items-container'>
+                    <div className='menu-title-wrap'>
+                        <h3 className='menu-title'>Recommended</h3>
+                        <p className='menu-count'>{menuItems.length} Items</p>
+                    </div>
                 
-                <h3>Menu</h3>
-                <ul>
-                    {menuItems.map((item) => (
-                        <li key={item.id} >
-                            {item.name} - <button style={{
-                            backgroundColor: "lightgreen",
-                            padding: "4px",
-                            margin: "5px",
-                            border: "1px solid green",
-                        }}  onClick={() => addFoodItem(item)}>Add</button></li>
-                    ))}
-                </ul>
+                    <div className='menu-item-list'>
+                        {menuItems.map((item) => (
+                            <div className='menu-item' key={item.id} >
+                                <div className='menu-item-details'>
+                                    <h3 className='item-title'>{item.name}</h3>
+                                    <p className='item-cost'>
+                                        {item.price > 0 ?
+                                            new Intl.NumberFormat("en-IN", {
+                                                style: "currency",
+                                                currency: "INR",
+                                            }).format(item.price / 100)
+                                            : " "
+                                        }
+                                    </p>
+                                    <p className='item-desc'>{ item?.description }</p>
+                                </div>
+                                <div className='menu-img-wrapper'>
+                                    {item?.imageId && (
+                                        <img
+                                            className='menu-item-img'
+                                            src={IMG_CDN_URL + item?.imageId}
+                                            alt={item?.name}
+                                        />
+                                    )}
+                                    <button
+                                        className='add-btn'
+                                        onClick={() => addFoodItem(item)}
+                                    >Add +
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     )

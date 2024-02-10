@@ -55,23 +55,27 @@ const Body = () => {
     if (!isOnline) {
         return <h1>Offline , Please check your internet connection!!</h1>;
     }
-    
+
+    const searchData = (searchInput,restaurants) => {
+        if (searchInput != "") {
+            const filteredData = filterData(searchInput, restaurants);
+            setFilteredRestaurants(filteredData);
+        }
+    }
+
     //not render component
     //it is known as early return 
     if (!allRestrauants) return null;   
-
-    // if (filteredrestraurants?.length === 0) 
-    //     return <h1>No Restrauant Match Your Search</h1>
 
     //conditional rendering
     // if restaurant is empty load shimmer ui 
     // if restaurant is not empty load actual data
     return allRestrauants.length === 0 ? (<Shimmer /> ):(
-        <>
+        <div className="body-container">
             <div className="search-container">
                 <input
                     className="search-input"
-                    placeholder="Search for restaurants and food"
+                    placeholder="Search for restaurants..."
                     type="text"
                     maxLength={200}
                     
@@ -90,7 +94,7 @@ const Body = () => {
                     }}
                 >
                     {/* Search  */}
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    Search
                 </button>
             </div>
             <div className="restraurant-list">
@@ -104,7 +108,7 @@ const Body = () => {
                     })
                 }
             </div>
-        </>
+        </div>
     );
 };
 

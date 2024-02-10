@@ -21,14 +21,14 @@ const Cart = () => {
     }
     
     return (
-        <div>
+        <div className="cart-container">
             <h1>Cart - {cardItems.length}</h1>
             <button
                 style={{
                     padding: "10px",
                     borderRadius: "5px",
-                    backgroundColor: "lightgreen",
-                    border: "1px solid green",
+                    backgroundColor: 'var(--purple)',
+                    border: "1px solid var(--dark-purple)",
                     boxShadow: '-1px 5px 10px 5px rgba(42, 42, 42, 0.2)',
                     margin:"10px 550px"
                 }}
