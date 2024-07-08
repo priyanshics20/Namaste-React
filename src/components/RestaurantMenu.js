@@ -60,7 +60,7 @@ const RestaurantMenu = () => {
             <div className='restaurant-summary'>
                 <img
                     className='restaurant-img'
-                    src={IMG_CDN_URL + restaurant?.data?.cards[0]?.card?.card?.info?.cloudinaryImageId}
+                    src={IMG_CDN_URL + restaurant?.data?.cards[0]?.card?.card?.info?.imageId}
                     alt={restaurant?.data?.cards[0].card?.card?.info?.name}
                 />
                 <div className='restaurant-summary-details'>
